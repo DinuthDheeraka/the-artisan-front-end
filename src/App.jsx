@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Header from "./components/header/Header.jsx";
+import ArtworkCard from "./components/artwork-card/ArtworkCard.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <>
+            <Header/>
+            <div className={`d-flex w-75`}>
+                <ArtworkCard
+                    img={'https://www.artmajeur.com/medias/mini/m/a/massimoiacovelli/artwork/17463439_20231210-121356.jpg'}
+                    title={'Atlas'}
+                    artist={'Jesús Barbosa '}
+                    size={'102x98x100 cm'}
+                    material={'Sculpture - Wood'}
+                    price={'€21,754.77'}
+                />
+                <ArtworkCard
+                    img={'https://www.artmajeur.com/medias/mini/j/e/jesus-barbosa/artwork/17339089_img-20230530-203419.jpg'}
+                    title={'Atlas'}
+                    artist={'Jesús Barbosa '}
+                    size={'102x98x100 cm'}
+                    material={'Sculpture - Wood'}
+                    price={'€21,754.77'}
+                />
+            </div>
+        </>
+    )
 }
 
 export default App

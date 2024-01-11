@@ -1,0 +1,37 @@
+.header {
+    /*height: 140px;*/
+    /* border-bottom: 1px solid #d5d5d5; */
+    box-shadow: rgba(164, 163, 163, 0.2) 0px 2px 8px 0px;
+}
+
+.headerNav {
+    padding-bottom: 12px;
+}
+
+.headerThemeName {
+    font-family: 'Berkshire Swash', sans-serif;
+    color: #000000;
+    font-size: 50px;
+}
+
+.headerUlNavLinks {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-weight: 500;
+}
+
+.headerUlUpperLeftLinks {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    list-style: none;
+    font-weight: 500;
+}
+
+.headerSearchBar {
+    border: 1px solid #d5d5d5;
+    padding-left: 10px;
+    height: 36px;
+    font-size: 15px;
+}
