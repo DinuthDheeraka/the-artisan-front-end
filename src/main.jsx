@@ -7,6 +7,7 @@ import '@fontsource/pacifico';
 import '@fontsource/dr-sugiyama';
 import '@fontsource/ma-shan-zheng';
 import '@fontsource/berkshire-swash';
+import '@fontsource-variable/archivo';
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App/>)

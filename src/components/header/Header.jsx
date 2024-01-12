@@ -1,26 +1,10 @@
 import styles from './header.module.css';
+import cartImg from '../../assets/shopping-bag.png'
 
 const Header = () => {
     return (
         <header
             className={`container-fluid d-flex flex-column justify-content-center align-items-center ${styles.header}`}>
-
-            <section className={`d-flex p-1 container-fluid align-items-center justify-content-between`}>
-
-                <section className={``}>
-                    {/*<ul className={`d-flex gap-4 align-items-center ${styles.headerUlUpperLeftLinks}`}>*/}
-                    {/*    <li>About</li>*/}
-                    {/*    <li>Language</li>*/}
-                    {/*</ul>*/}
-                </section>
-
-                <section className={``}>
-                    <ul className={`d-flex gap-2 align-items-center justify-content-center ${styles.headerUlUpperLeftLinks}`}>
-                        {/*<li>Sign Up / Sign In</li>*/}
-                    </ul>
-                </section>
-
-            </section>
 
             <section className={`${styles.headerThemeName}`}>
                 <p>The Artisan</p>
@@ -32,7 +16,7 @@ const Header = () => {
                     {/*<input placeholder={'Search'} className={`${styles.headerSearchBar} w-100`}/>*/}
                 </div>
 
-                <ul className={`d-flex flex-row justify-content-center align-items-center nav-pills gap-4 ${styles.headerUlNavLinks}`}>
+                <ul className={`d-flex flex-row justify-content-center align-items-center nav-pills gap-5 ${styles.headerUlNavLinks}`}>
                     <li className={`nav-item`}>
                         <a href={`#`} className={`nav-link`}>Painting</a>
                     </li>
@@ -53,11 +37,14 @@ const Header = () => {
                     </li>
                 </ul>
 
-                <div className={`w-25`}>
+                <div className={`w-25 d-flex justify-content-end`}>
+                    <img  className={`${styles.shoppingCart}`} src={cartImg}/>
                 </div>
 
             </nav>
-        </header>);
+
+        </header>
+    );
 }
 
 export default Header;
