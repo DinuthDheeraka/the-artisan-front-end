@@ -6,7 +6,7 @@
 }
 
 .headerNav {
-    padding-bottom: 12px;
+    padding-bottom: 10px;
 }
 
 .headerThemeName {
@@ -34,12 +34,22 @@
 .headerSearchBar {
     border: 1px solid #d5d5d5;
     padding-left: 10px;
+    border-radius: 3px;
     height: 36px;
     font-size: 15px;
+    width: 94%;
+}
+
+.headerSearchBar:focus {
+    /*border: 1px solid black;*/
+    /*outline: black;*/
+    outline: none; /* Remove the default outline */
+    /*border: 2px solid #707070; !* Set a black border color *!*/
+    box-shadow: 0 0 3px rgba(173, 173, 173, 0.5);
 }
 
 .shoppingCart{
-    margin-top:-10px;
+    /*margin-top:-5px;*/
     width: 35px;
     height: 35px;
 }

@@ -10,10 +10,11 @@ const Header = () => {
                 <p>The Artisan</p>
             </section>
 
-            <nav className={`${styles.headerNav} container-fluid d-flex justify-content-between align-items-center`}>
+            <nav
+                className={`container-fluid d-flex justify-content-center gap-5 align-items-center ${styles.headerNav}`}>
 
-                <div className={`w-25`}>
-                    {/*<input placeholder={'Search'} className={`${styles.headerSearchBar} w-100`}/>*/}
+                <div className={`w-25 d-flex justify-content-start`}>
+                    <input placeholder={'Search'} className={`${styles.headerSearchBar}`}/>
                 </div>
 
                 <ul className={`d-flex flex-row justify-content-center align-items-center nav-pills gap-5 ${styles.headerUlNavLinks}`}>
@@ -38,7 +39,7 @@ const Header = () => {
                 </ul>
 
                 <div className={`w-25 d-flex justify-content-end`}>
-                    <img  className={`${styles.shoppingCart}`} src={cartImg}/>
+                    <img alt={'img'} className={`${styles.shoppingCart}`} src={cartImg}/>
                 </div>
 
             </nav>

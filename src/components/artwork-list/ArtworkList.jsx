@@ -1,10 +1,11 @@
 import ArtworkCard from "../artwork-card/ArtworkCard.jsx";
+import styles from './artworkList.module.css';
 import arts from "../../db/Artworks.js";
 
 // eslint-disable-next-line react/prop-types
 const ArtworkList = () => {
     return (
-        <div className={`d-flex flex-wrap p-1 w-100`} style={{backgroundColor: 'rgb(255,255,255)'}}>
+        <div className={`d-flex flex-wrap ${styles.artworkList}`}>
             {
                 arts.map((art, key) =>
                     <ArtworkCard

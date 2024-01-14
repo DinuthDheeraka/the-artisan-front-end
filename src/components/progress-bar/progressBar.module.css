@@ -1,0 +1,16 @@
+.progress {
+    width: 140px;
+    height: 5px;
+    background-color: #e8e8e8;
+    border-radius: 5px;
+    border: none;
+}
+
+/*!* Customize the fill color as needed *!*/
+/*.progress::-webkit-progress-value {*/
+/*    background-color: #00ff00; !* Green fill color *!*/
+/*}*/
+
+.progress::-moz-progress-bar {
+    background-color: rgb(246, 189, 0); /* Green fill color for Firefox */
+}
