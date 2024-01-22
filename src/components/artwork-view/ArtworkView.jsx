@@ -112,7 +112,7 @@ const ArtworkView = () => {
                     <text style={{color: '#151515', fontSize: '18px', fontWeight: 500}}>Ratings & Reviews</text>
                 </div>
 
-                <div className={`d-flex flex-row gap-5 p-2`} style={{borderBottom: '1px solid #dcdcdc'}}>
+                <div className={`d-flex flex-row gap-5 p-2`} style={{marginBottom:'10px'}}>
 
                     <ArtworkReviewSummary/>
 
@@ -126,8 +126,7 @@ const ArtworkView = () => {
 
                 </div>
 
-                <div className={`d-flex flex-column`}>
-                    <ArtworkReview/>
+                <div className={`d-flex flex-column gap-2`}>
                     <ArtworkReview/>
                 </div>
             </div>

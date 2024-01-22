@@ -15,7 +15,7 @@ const ArtworkViewArtist = () => {
                 </div>
 
                 <div className={``}>
-                    Cynthia Saenz Sancho
+                    <text style={{fontWeight:500}}>Cynthia Saenz Sancho</text>
                 </div>
 
             </div>

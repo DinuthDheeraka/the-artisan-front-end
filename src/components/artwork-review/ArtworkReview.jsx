@@ -3,45 +3,49 @@ import star from "../../assets/star.png";
 const ArtworkReview = () => {
 
     return (
-        <div className={`p-2 d-flex gap-2 flex-column`}
-             style={{backgroundColor: 'rgb(255,255,255)',borderBottom:'1px solid #dcdcdc'}}>
+        <div className={`p-3 d-flex gap-4 flex-column`}
+             style={{backgroundColor: '#f1f1f1'}}>
+
             <div className={`d-flex gap-2`}>
                 <div className={`d-flex align-items-center justify-content-center`} style={{gap: '2px'}}>
                     <img alt={''}
-                         width={'10px'}
-                         height={'10px'}
+                         width={'11px'}
+                         height={'11px'}
                          src={star}/>
                     <img alt={''}
-                         width={'10px'}
-                         height={'10px'}
+                         width={'11px'}
+                         height={'11px'}
                          src={star}/>
                     <img alt={''}
-                         width={'10px'}
-                         height={'10px'}
+                         width={'11px'}
+                         height={'11px'}
                          src={star}/>
                     <img alt={''}
-                         width={'10px'}
-                         height={'10px'}
+                         width={'11px'}
+                         height={'11px'}
                          src={star}/>
                     <img alt={''}
-                         width={'10px'}
-                         height={'10px'}
+                         width={'11px'}
+                         height={'11px'}
                          src={star}/>
                 </div>
-                <small style={{color: '#626262'}}>Dinuth Dheeraka</small>
+                <text style={{fontWeight: 500}}>
+                    <text>Dinuth Dheeraka</text>
+                </text>
             </div>
+
             <div className={``}>
-                <small style={{fontWeight: 300}}>Well Packed ! Fast Delivery ! Excellent service ! 😍😍👍👍
+                <text style={{}}>Well Packed ! Fast Delivery ! Excellent service !
                     Thankyou so much for the great Service ! ❤
-                </small>
+                </text>
             </div>
             <div className={`gap-2 d-flex flex-row`}>
-                <div>
+                <div className={``}>
                     <img
                         alt={''}
-                        height={'100px'}
-                        width={'100px'}
-                        style={{borderRadius: '5px'}}
+                        height={'300px'}
+                        width={'300px'}
+                        style={{borderRadius: '2px'}}
                         src={'https://www.artmajeur.com/medias/home/y/u/yuehua-he/artwork/17465872_cixi.jpg'}/>
                 </div>
             </div>
