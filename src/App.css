@@ -1,5 +1,11 @@
-.temp{
+.temp {
     background-position: center;
     background-size: cover;
-    background: url("https://images.hdqwalls.com/download/polygon-colour-abstract-4k-k6-1920x1080.jpg");
+    background: url("https://images6.alphacoders.com/131/1315980.jpg");
 }
+
+body {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+/*https://w.wallhaven.cc/full/1p/wallhaven-1p8dyv.jpg*/

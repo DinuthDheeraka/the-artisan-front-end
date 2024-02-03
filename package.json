@@ -16,10 +16,15 @@
     "@fontsource/dr-sugiyama": "^5.0.18",
     "@fontsource/ma-shan-zheng": "^5.0.11",
     "@fontsource/pacifico": "^5.0.8",
+    "axios": "^1.6.5",
     "bootstrap": "^5.3.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.2",
-    "react-dom": "^18.2.0"
+    "react-bootstrap-range-slider": "^3.0.8",
+    "react-dom": "^18.2.0",
+    "react-loader-spinner": "^6.1.6",
+    "react-router-dom": "^6.21.3",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

@@ -1,6 +1,4 @@
-import star from "../../assets/star.png";
-
-const ArtworkReview = () => {
+const ArtworkReview = ({points,image,comment,name}) => {
 
     return (
         <div className={`p-3 d-flex gap-4 flex-column`}
@@ -8,45 +6,34 @@ const ArtworkReview = () => {
 
             <div className={`d-flex gap-2`}>
                 <div className={`d-flex align-items-center justify-content-center`} style={{gap: '2px'}}>
-                    <img alt={''}
-                         width={'11px'}
-                         height={'11px'}
-                         src={star}/>
-                    <img alt={''}
-                         width={'11px'}
-                         height={'11px'}
-                         src={star}/>
-                    <img alt={''}
-                         width={'11px'}
-                         height={'11px'}
-                         src={star}/>
-                    <img alt={''}
-                         width={'11px'}
-                         height={'11px'}
-                         src={star}/>
-                    <img alt={''}
-                         width={'11px'}
-                         height={'11px'}
-                         src={star}/>
+                    <button style={{
+                        fontSize: '14px',
+                        border: 'none',
+                        width: '27px',
+                        height: '25px',
+                        color: '#ffffff',
+                        backgroundColor: '#111111',
+                        borderRadius: '100%',
+                    }}>{points}
+                    </button>
                 </div>
-                <text style={{fontWeight: 500}}>
-                    <text>Dinuth Dheeraka</text>
-                </text>
+                <div className={`d-flex align-items-center gap-4`} style={{fontWeight: 500}}>
+                    <text>{name}</text>
+                </div>
             </div>
 
             <div className={``}>
-                <text style={{}}>Well Packed ! Fast Delivery ! Excellent service !
-                    Thankyou so much for the great Service ! ❤
+                <text style={{}}>{comment}
                 </text>
             </div>
             <div className={`gap-2 d-flex flex-row`}>
                 <div className={``}>
                     <img
                         alt={''}
-                        height={'300px'}
+                        // height={'300px'}
                         width={'300px'}
                         style={{borderRadius: '2px'}}
-                        src={'https://www.artmajeur.com/medias/home/y/u/yuehua-he/artwork/17465872_cixi.jpg'}/>
+                        src={image}/>
                 </div>
             </div>
         </div>

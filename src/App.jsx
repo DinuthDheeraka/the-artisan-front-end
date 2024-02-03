@@ -1,40 +1,51 @@
 import './App.css'
-import Header from "./components/header/Header.jsx";
-import ArtworkAddPage from "./components/artwork-add/ArtworkAddPage.jsx";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import HomePage from "./pages/HomePage.jsx";
+import CartPage from "./pages/CartPage.jsx";
+import ItemViewPage from "./pages/ItemViewPage.jsx";
+import SignInPage from "./pages/SignInPage.jsx";
+import BuyerSignInPage from "./pages/BuyerSignInPage.jsx";
+import ArtistSignInPage from "./pages/ArtistSignInPage.jsx";
+import ArtistProfilePage from "./pages/ArtistProfilePage.jsx";
+import ArtworkAddPage from "./pages/ArtworkAddPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import ArtworkMainFilter from './components/artwork-filter/ArtworkMainFilter.jsx';
+
+
+const router = createBrowserRouter([
+    {
+        path: '/', element: <HomePage/>
+    },
+    {
+        path: '/cart', element: <CartPage/>
+    },
+    {
+        path: '/artwork/*', element: <ItemViewPage/>
+    },
+    {
+        path: '/sign-in', element: <SignInPage/>
+    },
+    {
+        path: '/login', element: <LoginPage/>
+    },
+    {
+        path: '/buyer-sign-in', element: <BuyerSignInPage/>
+    },
+    {
+        path: '/artist-sign-in', element: <ArtistSignInPage/>
+    },
+    {
+        path: '/artist/profile/*', element: <ArtistProfilePage/>
+    },
+    {
+        path: '/artwork/add', element: <ArtworkAddPage/>
+    },
+])
 
 
 function App() {
 
-    return (
-        <div style={{backgroundColor: 'rgb(255,255,255)', height: '1000px'}}>
-            <Header/>
-            {/*<div className={`w-100 position-relative`} style={{}}>*/}
-
-            {/*    <div className={`${"temp"} justify-content-center gap-5 align-items-center d-flex flex-column`}>*/}
-
-            {/*        <div style={{backgroundColor: 'white'}}*/}
-            {/*             className={`d-flex p-3 border justify-content-center align-items-center w-100`}>*/}
-            {/*            <h3 style={{*/}
-            {/*                fontFamily: 'Berkshire Swash, sans-serif',*/}
-            {/*                fontSize: '50px'*/}
-            {/*            }}>The Artisan</h3>*/}
-            {/*        </div>*/}
-
-            {/*        <BuyerSignInForm/>*/}
-            {/*        /!*<ArtistProfile/>
-
-            {/*        <div style={{height: '85px'}}>*/}
-
-            {/*        </div>*/}
-
-            {/*    </div>*/}
-
-            {/*</div>*/}
-            {/*<ArtworkListContainer/>*/}
-            {/*<ArtworkView/>*/}
-            <ArtworkAddPage/>
-        </div>
-    )
+    return (<RouterProvider router={router}/>)
 }
 
 export default App
