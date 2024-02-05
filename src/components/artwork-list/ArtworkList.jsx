@@ -4,7 +4,7 @@ import ArtworkCard from "../artwork-card/ArtworkCard.jsx";
 import styles from './artworkList.module.css';
 import { BASE_URL } from "../../constants/Routes.js";
 
-const ArtworkList = ({category}) => {
+const ArtworkList = ({ filter }) => {
 
     const [artworks, setArtworks] = useState([]);
 
@@ -13,11 +13,16 @@ const ArtworkList = ({category}) => {
         const fetchArtworks = async () => {
             try {
                 // Make an API call using Axios to get artworks
-                const response = await axios.get(`${BASE_URL}/artworks/`,{
+                const response = await axios.get(`${BASE_URL}/artworks/`, {
                     params: {
-                        "category":category
+                        "category": filter.category,
+                        "artist_name": filter.artistName,
+                        "style": filter.style,
+                        "min_price": filter.minPrice,
+                        "max_price": filter.maxPrice
                     }
                 });
+                
                 const data = response.data;
 
                 console.log(data.selected_artworks);
@@ -30,8 +35,8 @@ const ArtworkList = ({category}) => {
 
         // Call the fetchArtworks function when the component mounts
         fetchArtworks();
-        
-    }, [category]);
+
+    }, [filter]);
 
     return (
         <div className={`d-flex flex-wrap ${styles.artworkList}`}>

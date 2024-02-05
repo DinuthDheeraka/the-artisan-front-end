@@ -6,32 +6,45 @@ import ArtworkMainFilter from "../components/artwork-filter/ArtworkMainFilter.js
 
 export default function HomePage() {
 
-    const [category,setCategory] = useState("");
-    const [isShowFilter, setIsShowFilter] = useState(true);
+    const [category, setCategory] = useState("");
+    const [filter, setFilter] = useState({
+        category:""
+    })
+    const [isShowFilter, setIsShowFilter] = useState(false);
 
-    function updateCategory(category){
-        setCategory(category)
+    function updateCategory(category) {
+        setFilter({
+            category:category
+        })
     }
 
-    function setShowFilter(isShow){
+    function updateFilter(filter){
+        setFilter({
+            ...filter
+        });
+    }
+
+    console.log("header")
+    console.log(filter);
+
+    function setShowFilter(isShow) {
         setIsShowFilter(isShow)
     }
 
-    function setFilterMargin(){
-        return isShowFilter? '0px':'-373px';
+    function setFilterMargin() {
+        return isShowFilter ? '0px' : '-373px';
     }
 
-    
     return (
-        <div style={{position:'relative'}}>
-            <div 
-            className={`w-25`} 
-            style={{position:'fixed',margin:'auto',marginLeft:setFilterMargin()}}>
-                <ArtworkMainFilter updateShowFilter={setShowFilter}/>
+        <div style={{ position: 'relative' }}>
+            <div
+                className={`w-25`}
+                style={{ position: 'fixed', margin: 'auto', marginLeft: setFilterMargin() }}>
+                <ArtworkMainFilter updateFilter={updateFilter} updateShowFilter={setShowFilter} />
             </div>
-            <Header updateCategory={updateCategory}/>
+            <Header updateCategory={updateCategory} />
             <div className={`my-4`}>
-                <ArtworkListContainer category={category} updateShowFilter={setShowFilter}/>
+                <ArtworkListContainer filter={filter} updateShowFilter={setShowFilter} />
             </div>
             <div style={{}}>
                 <Footer />

@@ -1,12 +1,14 @@
 .artworkLisContainerFilter {
     width: 95vw;
     padding-left: 9px;
+    cursor: pointer;
 }
 
 .artworkLisContainerFilterImg {
     margin: 0;
     height: 16px;
     width: 15px;
+    cursor: pointer;
 }
 
 .artworkLisContainerFilterTxt {
