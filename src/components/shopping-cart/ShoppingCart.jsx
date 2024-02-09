@@ -9,12 +9,12 @@ const ShoppingCart = () => {
 
     let cart = []
 
-    if(localStorage.getItem("cart")!==null){
+    if (localStorage.getItem("cart") !== null) {
         cart = JSON.parse(localStorage.getItem("cart"))
     }
 
-    function updateCart(isUpdated){
-        setIsCartUpdated((prev)=>{
+    function updateCart(isUpdated) {
+        setIsCartUpdated((prev) => {
             return !prev;
         })
     }
@@ -34,6 +34,7 @@ const ShoppingCart = () => {
                     {
                         cart.map((item, index) => {
                             return <CartItem
+                                key={index}
                                 index={index}
                                 imgUrl={item.item_img}
                                 title={item.title}
@@ -51,9 +52,9 @@ const ShoppingCart = () => {
             </div>
 
             {/*payment*/}
-            <CartPaymentSection cart={cart} updateCart={updateCart}/>
+            <CartPaymentSection cart={cart} updateCart={updateCart} />
         </div>
-    ); 
+    );
 }
 
 export default ShoppingCart;

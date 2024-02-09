@@ -7,15 +7,27 @@ import UserSideBar from "../components/user-side-bar/UserSideBar.jsx";
 
 export default function HomePage() {
 
-    const [category, setCategory] = useState("");
     const [filter, setFilter] = useState({
         category:""
     })
+
     const [isShowFilter, setIsShowFilter] = useState(false);
 
     function updateCategory(category) {
         setFilter({
             category:category
+        })
+    }
+
+    function updateSearch(search) {
+        setFilter({
+            search: search
+        })
+    }
+
+    function updateImage(image){
+        setFilter({
+            img: image
         })
     }
 
@@ -44,7 +56,8 @@ export default function HomePage() {
                 <ArtworkMainFilter updateFilter={updateFilter} updateShowFilter={setShowFilter} />
             </div>
 
-            <Header updateCategory={updateCategory} />
+            <Header updateImage={updateImage} updateSearch={updateSearch} updateCategory={updateCategory} />
+
             <div className={`my-4`}>
                 <ArtworkListContainer filter={filter} updateShowFilter={setShowFilter} />
             </div>

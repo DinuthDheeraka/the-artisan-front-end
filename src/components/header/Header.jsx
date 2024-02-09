@@ -4,8 +4,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import lens from '../../assets/lens.png'
 import { useRef } from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
+import userImg from '../../assets/user.png'
 
-const Header = ({ updateCategory }) => {
+const Header = ({ updateCategory, updateSearch , updateImage}) => {
 
     const navigate = useNavigate();
 
@@ -15,6 +16,12 @@ const Header = ({ updateCategory }) => {
 
     const handleChooseImage = () => {
         lensRef.current.click();
+    };
+
+    const handleFileChange = (event) => {
+        const selectedFile = event.target.files[0];
+        console.log('Selected File:', selectedFile);
+        updateImage(selectedFile)
     };
 
     return (
@@ -37,8 +44,8 @@ const Header = ({ updateCategory }) => {
 
                 <section style={{ width: '33.333333%' }} className={`d-flex gap-3 justify-content-end align-items-center px-2`}>
                     <section className={`d-flex flex-column`}>
-                        <text style={{ fontWeight: 580 }}>{user.display_name}</text>
-                        <small style={{ fontWeight: 500 }}>{user.email}</small>
+                        <text style={{ fontWeight: 580 }}>{user === null ? '' : user.display_name}</text>
+                        <small style={{ fontWeight: 500 }}>{user === null ? '' : user.email}</small>
                     </section>
                     <img
                         style={{
@@ -50,7 +57,7 @@ const Header = ({ updateCategory }) => {
                             height: '60px',
                             borderRadius: '100%'
                         }}
-                        src={user.profile_img == null ? undefined : user.profile_img} />
+                        src={user === null ? userImg : user.profile_img == null ? undefined : user.profile_img} />
                 </section>
             </section>
 
@@ -60,10 +67,18 @@ const Header = ({ updateCategory }) => {
 
                 <div className={`w-25 px-2 d-flex mb-0`}>
                     <div style={{ width: '335px', border: '1px solid rgb(222,222,222)' }} className={`d-flex justify-content-start gap-2 align-items-center`}>
-                        <input style={{ borderRadius: '0px' }} placeholder={'Search'} className={`${styles.headerSearchBar}`} />
+                        <input
+                            style={{ borderRadius: '0px' }}
+                            onKeyDown={(event) => {
+                                if (event.key === 'Enter') {
+                                    const inputValue = event.target.value;
+                                    updateSearch(inputValue);
+                                }
+                            }} 
+                            placeholder={'Search'} className={`${styles.headerSearchBar}`} />
                         <div>
                             <img onClick={handleChooseImage} className={`px-2`} style={{ objectFit: 'cover', cursor: 'pointer' }} height={'30px'} src={lens} />
-                            <input ref={lensRef} style={{ display: 'none' }} type='file' />
+                            <input onChange={handleFileChange} ref={lensRef} style={{ display: 'none' }} type='file' />
                         </div>
                     </div>
                 </div>
@@ -101,17 +116,17 @@ const Header = ({ updateCategory }) => {
                     </li>
                     <li>
                         <DropdownButton title={'Settings'} variant='dark' size='sm' style={{ borderRadius: '0px', width: '50px' }}>
-                            
+
                             <Dropdown.Item eventKey="1">My Profile</Dropdown.Item>
-                            
-                            <Dropdown.Item eventKey="2" onClick={()=>{
+
+                            <Dropdown.Item eventKey="2" onClick={() => {
                                 navigate("/purchases")
                             }}>My Purahceses</Dropdown.Item>
-                            
-                            {user.user_role === 'Artist' ? <Dropdown.Item onClick={()=>{
+
+                            {user === null ? undefined : user.user_role === 'Artist' ? <Dropdown.Item onClick={() => {
                                 navigate("/artwork/add")
                             }} eventKey="3">Add Artwork</Dropdown.Item> : undefined}
-                            
+
                             <Dropdown.Item onClick={() => {
                                 localStorage.clear();
                                 navigate("/login");

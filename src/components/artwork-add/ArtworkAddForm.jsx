@@ -359,17 +359,17 @@ const ArtworkAddForm = () => {
                         </div>
 
                         <div className={`gap-5 d-flex justify-content-start align-items-center`}>
-                            <text style={{ fontWeight: 500 }} className={`w-25`}>Frame height</text>
+                            <text style={{ fontWeight: 500 }} className={`w-25`}>Frame height (cm)</text>
                             <input onChange={handleFrameHeightChange} value={frameHeight} style={{ width: '300px' }} className={`form-control`} />
                         </div>
 
                         <div className={`gap-5 d-flex justify-content-start align-items-center`}>
-                            <text style={{ fontWeight: 500 }} className={`w-25`}>Frame width</text>
+                            <text style={{ fontWeight: 500 }} className={`w-25`}>Frame width (cm)</text>
                             <input onChange={handleFrameWidthChange} value={frameWidth} style={{ width: '300px' }} className={`form-control`} />
                         </div>
 
                         <div className={`gap-5 d-flex justify-content-start align-items-center`}>
-                            <text style={{ fontWeight: 500 }} className={`w-25`}>Frame thickness</text>
+                            <text style={{ fontWeight: 500 }} className={`w-25`}>Frame thickness (cm)</text>
                             <input onChange={handleFrameThicknessChange} value={frameThickness} style={{ width: '300px' }} className={`form-control`} />
                         </div>
 

@@ -12,22 +12,52 @@ const ArtworkList = ({ filter }) => {
         // Define the function to fetch artworks from the API
         const fetchArtworks = async () => {
             try {
-                // Make an API call using Axios to get artworks
-                const response = await axios.get(`${BASE_URL}/artworks/`, {
-                    params: {
-                        "category": filter.category,
-                        "artist_name": filter.artistName,
-                        "style": filter.style,
-                        "min_price": filter.minPrice,
-                        "max_price": filter.maxPrice
-                    }
-                });
-                
-                const data = response.data;
 
-                console.log(data.selected_artworks);
-                // Update the state with the fetched artworks
-                setArtworks(data.selected_artworks);
+                if (filter.img !== undefined) {
+
+                    const formData = new FormData();
+
+                    formData.append("file", filter.img);
+
+                    try {
+                        const response = await axios.post(`${BASE_URL}/artworks/search/img`, formData, {
+                            headers: {
+                                "Content-Type": "multipart/form-data",
+                            },
+                        });
+
+                        const data = response.data;
+
+                        console.log(data);
+
+                        setArtworks(data.selected_artworks);
+
+                    } catch (error) {
+                        console.error("Error:", error);
+                    }
+
+                } else {
+
+                    // Make an API call using Axios to get artworks
+                    const response = await axios.get(`${BASE_URL}/artworks/`, {
+                        params: {
+                            "category": filter.category,
+                            "artist_name": filter.artistName,
+                            "style": filter.style,
+                            "min_price": filter.minPrice,
+                            "max_price": filter.maxPrice,
+                            "search": filter.search
+                        }
+                    });
+
+                    const data = response.data;
+
+                    console.log(data.selected_artworks);
+                    // Update the state with the fetched artworks
+                    setArtworks(data.selected_artworks);
+
+                }
+
             } catch (error) {
                 console.error('Error fetching artworks:', error);
             }

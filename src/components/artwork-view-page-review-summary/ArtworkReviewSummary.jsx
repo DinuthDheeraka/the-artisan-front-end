@@ -1,4 +1,5 @@
 import star from '../../assets/star.png';
+import obj from '../../utils/ReviewColorUtil.js'
 
 const ArtworkReviewSummary = ({ reviews }) => {
 
@@ -28,13 +29,13 @@ const ArtworkReviewSummary = ({ reviews }) => {
                 style={{
                     //  borderTopRightRadius: '40px',
                     textAlign: 'center',
-                    backgroundColor: '#ffc400',
+                    backgroundColor: obj.func(summary.total, reviews.length).color,
                     color: 'white',
                     width: '200px',
                     height: '30px',
                     borderRadius: "0px"
                 }}>
-                <text style={{ fontWeight: 500, fontSize: '15px' }}>Excellent</text>
+                <text style={{ fontWeight: 500, fontSize: '15px' }}>{obj.func(summary.total, reviews.length).txt}</text>
             </div>
         </div>
     );
