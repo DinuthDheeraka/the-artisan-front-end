@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import axios from "axios";
+import { BASE_URL } from "../../constants/Routes.js";
 
 export default function AddratingForm({ artworkId }) {
 
@@ -66,14 +67,16 @@ export default function AddratingForm({ artworkId }) {
         }
 
         axios
-            .post("http://127.0.0.1:8000/api/v1/artworks/reviews", formData, {
+            .post(`${BASE_URL}/artworks/reviews`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
             })
             .then((response) => {
                 alert(response.data.message);
-                window.location.reload()
+                if(response.data.success){
+                    window.location.reload()
+                }
             })
             .catch((error) => {
                 console.error("Error:", error);
@@ -138,7 +141,7 @@ export default function AddratingForm({ artworkId }) {
                 <img
                     height={'200px'}
                     width={'200x'}
-                    style={{ borderRadius: '1px' }}
+                    style={{ borderRadius: '1px',objectFit:'cover' }}
                     className={`border`}
                     src={selectedFile == null ? 'https://semantic-ui.com/images/wireframe/white-image.png' : selectedFile}
                     // src={''}

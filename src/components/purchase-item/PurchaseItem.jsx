@@ -58,7 +58,7 @@ export default function PurchaseItem({ index,artworkId, imgUrl, artistName, titl
                         const response = confirm("Do you want to review this artwork?");
 
                         if (response) {
-                            navigate("/artwork/1");
+                            navigate(`/artwork/${artworkId}`);
                         } else {
                         }
                         
