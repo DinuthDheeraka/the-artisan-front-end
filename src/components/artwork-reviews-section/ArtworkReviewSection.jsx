@@ -56,7 +56,7 @@ export default function ArtworkReviewSection({artworkId}){
         <div className={`d-flex flex-row align-items-center justify-content-start gap-5 p-0`}
             style={{ marginBottom: '10px' }}>
 
-            <ArtworkReviewSummary />
+            <ArtworkReviewSummary reviews={reviews}/>
 
         </div>
 

@@ -78,10 +78,16 @@ export default function CartItem({ index, imgUrl, artistName, title, price, qty,
                 style={{ width: '10%' }}>
                 <button
                     onClick={() => {
-                        let cart = JSON.parse(localStorage.getItem("cart"));
-                        cart.splice(index,1);
-                        localStorage.setItem("cart", JSON.stringify(cart));
-                        updateCart(true);
+                        
+                        const response = confirm("Do you want to remove this artwork from the shopping cart?");
+                        
+                        if(response){
+                            let cart = JSON.parse(localStorage.getItem("cart"));
+                            cart.splice(index, 1);
+                            localStorage.setItem("cart", JSON.stringify(cart));
+                            updateCart(true);
+                        }else{
+                        }
                     }}
                     style={{
                         fontSize: '12px',

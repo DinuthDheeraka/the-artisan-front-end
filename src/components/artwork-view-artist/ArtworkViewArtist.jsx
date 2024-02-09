@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './artworkArtistView.module.css';
 
-export default function ArtworkViewArtist  ({id,profileImg, displayName, biography}) {
-    
+export default function ArtworkViewArtist({ id, profileImg, displayName, biography }) {
+
     const navigate = useNavigate();
 
     return (
@@ -12,8 +12,9 @@ export default function ArtworkViewArtist  ({id,profileImg, displayName, biograp
 
                 <div className={`p-3`}>
                     <img
+                        style={{cursor:'pointer'}}
                         alt={''}
-                        onClick={()=>{
+                        onClick={() => {
                             navigate(`/artist/profile/${id}`);
                         }}
                         className={`${styles.artistImage}`}

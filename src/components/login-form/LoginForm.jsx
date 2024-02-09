@@ -1,6 +1,6 @@
 import {useState} from "react";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BASE_URL } from "../../constants/Routes.js";
 
 export default function LoginForm() {
@@ -90,7 +90,9 @@ export default function LoginForm() {
                 </div>
                 <div className={``}>
                     {/* eslint-disable-next-line react/no-unescaped-entities */}
-                    <span style={{fontSize: "16px"}}>Don't have an account? Sign up</span>
+                    <span style={{fontSize: "16px"}}>Don't have an account? {<Link onClick={()=>{
+                        navigate('/sign-in');
+                    }} style={{color:'black'}}>Sign up</Link>}</span>
                 </div>
             </div>
         </div>

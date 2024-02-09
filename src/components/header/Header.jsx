@@ -1,19 +1,29 @@
 import styles from './header.module.css';
 import cartImg from '../../assets/shopping-bag.png'
 import { Link, useNavigate } from 'react-router-dom';
+import lens from '../../assets/lens.png'
+import { useRef } from 'react';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
 
 const Header = ({ updateCategory }) => {
 
     const navigate = useNavigate();
 
+    const lensRef = useRef(null);
+
     const user = JSON.parse(localStorage.getItem("user"))
+
+    const handleChooseImage = () => {
+        lensRef.current.click();
+    };
 
     return (
         <header
             className={`container-fluid d-flex flex-column justify-content-center align-items-center ${styles.header}`}>
 
             <section className={`d-flex justify-content-center align-items-center w-100`}>
-                <section style={{ width: '33.3333333%' }}>
+
+                <section className={`px-4`} style={{ width: '33.3333333%' }}>
 
                 </section>
 
@@ -48,11 +58,17 @@ const Header = ({ updateCategory }) => {
             <nav
                 className={`container-fluid d-flex justify-content-center gap-5 align-items-center ${styles.headerNav}`}>
 
-                <div className={`w-25 d-flex justify-content-start px-2`}>
-                    <input placeholder={'Search'} className={`${styles.headerSearchBar}`} />
+                <div className={`w-25 px-2 d-flex mb-0`}>
+                    <div style={{ width: '335px', border: '1px solid rgb(222,222,222)' }} className={`d-flex justify-content-start gap-2 align-items-center`}>
+                        <input style={{ borderRadius: '0px' }} placeholder={'Search'} className={`${styles.headerSearchBar}`} />
+                        <div>
+                            <img onClick={handleChooseImage} className={`px-2`} style={{ objectFit: 'cover', cursor: 'pointer' }} height={'30px'} src={lens} />
+                            <input ref={lensRef} style={{ display: 'none' }} type='file' />
+                        </div>
+                    </div>
                 </div>
 
-                <ul className={`d-flex flex-row justify-content-center align-items-center nav-pills gap-5 ${styles.headerUlNavLinks}`}>
+                <ul style={{ gap: '31px' }} className={`d-flex flex-row justify-content-centerborder  align-items-center nav-pills ${styles.headerUlNavLinks}`}>
                     <li className={`nav-item`}>
                         <Link onClick={() => {
                             updateCategory("Painting")
@@ -82,6 +98,25 @@ const Header = ({ updateCategory }) => {
                         <Link onClick={() => {
                             updateCategory("Artists")
                         }} className={`nav-link`}>Artists</Link>
+                    </li>
+                    <li>
+                        <DropdownButton title={'Settings'} variant='dark' size='sm' style={{ borderRadius: '0px', width: '50px' }}>
+                            
+                            <Dropdown.Item eventKey="1">My Profile</Dropdown.Item>
+                            
+                            <Dropdown.Item eventKey="2" onClick={()=>{
+                                navigate("/purchases")
+                            }}>My Purahceses</Dropdown.Item>
+                            
+                            {user.user_role === 'Artist' ? <Dropdown.Item onClick={()=>{
+                                navigate("/artwork/add")
+                            }} eventKey="3">Add Artwork</Dropdown.Item> : undefined}
+                            
+                            <Dropdown.Item onClick={() => {
+                                localStorage.clear();
+                                navigate("/login");
+                            }} eventKey="4">Logout</Dropdown.Item>
+                        </DropdownButton>
                     </li>
                 </ul>
 

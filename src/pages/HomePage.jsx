@@ -3,6 +3,7 @@ import ArtworkListContainer from "../components/artwork-list-container/ArtworkLi
 import Footer from "../components/footer/Footer.jsx";
 import { useState } from "react";
 import ArtworkMainFilter from "../components/artwork-filter/ArtworkMainFilter.jsx";
+import UserSideBar from "../components/user-side-bar/UserSideBar.jsx";
 
 export default function HomePage() {
 
@@ -36,12 +37,13 @@ export default function HomePage() {
     }
 
     return (
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative'}}>
             <div
                 className={`w-25`}
                 style={{ position: 'fixed', margin: 'auto', marginLeft: setFilterMargin() }}>
                 <ArtworkMainFilter updateFilter={updateFilter} updateShowFilter={setShowFilter} />
             </div>
+
             <Header updateCategory={updateCategory} />
             <div className={`my-4`}>
                 <ArtworkListContainer filter={filter} updateShowFilter={setShowFilter} />

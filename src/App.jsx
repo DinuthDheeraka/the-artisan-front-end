@@ -10,6 +10,7 @@ import ArtistProfilePage from "./pages/ArtistProfilePage.jsx";
 import ArtworkAddPage from "./pages/ArtworkAddPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import ArtworkMainFilter from './components/artwork-filter/ArtworkMainFilter.jsx';
+import Purchases from './pages/Purchases.jsx';
 
 
 const router = createBrowserRouter([
@@ -18,6 +19,9 @@ const router = createBrowserRouter([
     },
     {
         path: '/cart', element: <CartPage/>
+    },
+    {
+        path: '/purchases', element: <Purchases />
     },
     {
         path: '/artwork/*', element: <ItemViewPage/>

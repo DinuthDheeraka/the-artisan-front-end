@@ -150,26 +150,33 @@ const ArtworkView = () => {
                         <button
                             onClick={() => {
 
-                                let cart = localStorage.getItem("cart")
+                                const response = confirm("Do you want to add this artwork to the shopping cart?");
 
-                                if (cart === null) {
-                                    localStorage.setItem("cart", JSON.stringify([]))
+                                if(response){
+
+                                    let cart = localStorage.getItem("cart")
+
+                                    if (cart === null) {
+                                        localStorage.setItem("cart", JSON.stringify([]))
+                                    }
+
+                                    let newCart = [...JSON.parse(localStorage.getItem("cart")), {
+                                        "item_id": artwork.id,
+                                        "artist_id": artist.id,
+                                        "item_img": artwork.main_image,
+                                        "title": artwork.title,
+                                        "artist_name": artist.display_name,
+                                        "price": artwork.price_without_shipping,
+                                        "qty": qty,
+                                        "max_qty": artwork.number_of_copies_for_sale
+                                    }]
+
+                                    localStorage.setItem("cart", JSON.stringify(newCart))
+
+                                }else{
+
                                 }
 
-                                let newCart = [...JSON.parse(localStorage.getItem("cart")), {
-                                    "item_id": artwork.id,
-                                    "artist_id": artist.id,
-                                    "item_img": artwork.main_image,
-                                    "title": artwork.title,
-                                    "artist_name": artist.display_name,
-                                    "price": artwork.price_without_shipping,
-                                    "qty": qty,
-                                    "max_qty": artwork.number_of_copies_for_sale
-                                }]
-
-                                localStorage.setItem("cart", JSON.stringify(newCart))
-
-                                console.log(localStorage.getItem("cart"));
                             }}
                             style={{
                                 color: '#ffffff',

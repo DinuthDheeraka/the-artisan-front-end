@@ -63,7 +63,7 @@ const ArtistProfile = () => {
             <img
                 width={`150px`}
                 height={'150px'}
-                style={{ objectFit:'cover',borderRadius: '100%', position: "absolute", margin: 'auto', top: '430px', left: '80px' }}
+                style={{ objectFit: 'cover', borderRadius: '100%', position: "absolute", margin: 'auto', top: '430px', left: '80px' }}
                 src={artist.profile_img_url}
             />
         </div>
@@ -73,9 +73,9 @@ const ArtistProfile = () => {
             <div className={`d-flex`}>
 
                 <text className={`w-75`}>
-                    • Artist ({artist.artist_category}) • Born {artist.date_of_birth.substring(0,4)} •
+                    • Artist ({artist.artist_category}) • Born {artist.date_of_birth.substring(0, 4)} •
                 </text>
-                
+
                 <div className={`w-25 d-flex align-items-center gap-2`} style={{}}>
                     <img
                         height={'25px'}
@@ -108,7 +108,15 @@ const ArtistProfile = () => {
         </div>
 
         <div className={`pt-3`}>
-            <ArtworkListContainer />
+            <ArtworkListContainer filter={
+                {
+                    category: "",
+                    artistName: artist.display_name,
+                    style: "",
+                    minPrice: "",
+                    maxPrice: "",
+                }
+            } />
         </div>
     </div>);
 }

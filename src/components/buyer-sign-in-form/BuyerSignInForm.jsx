@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../constants/Routes.js";
+import user from '../../assets/user.png'
 
 const BuyerSignInForm = () => {
 
@@ -51,8 +52,16 @@ const BuyerSignInForm = () => {
                 },
             })
             .then((response) => {
-                console.log(response);
-                navigate("/");
+
+                alert(response.data.message);
+
+                if (response.data.success) {
+
+                    localStorage.setItem("user", JSON.stringify(response.data.user));
+
+                    navigate("/");
+
+                }
             })
             .catch((error) => {
                 console.error("Error:", error);
@@ -95,7 +104,7 @@ const BuyerSignInForm = () => {
 
 
                 <div className={`d-flex align-items-center justify-content-center`}>
-                    <img alt={''} src={selectedFile} className={`border`}
+                    <img alt={''} src={selectedFile === null ? user : selectedFile} className={`border`}
                         style={{ borderRadius: '100%', width: '120px', height: '120px' }} />
                 </div>
 
@@ -162,7 +171,7 @@ const BuyerSignInForm = () => {
 
                 <div className={`d-flex align-items-center`}>
                     <label className={`w-25`}>Date of birth</label>
-                    <input style={{ height: '50px', borderRadius: '1px', border: 'none' }} type={"date"}
+                    <input style={{ paddingLeft:'10px',height: '50px', borderRadius: '1px', border: 'none' }} type={"date"}
                         placeholder={'Date Of Birth'}
                         className={`w-100 border`}
                         value={dob}

@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const UserSignInForm = () => {
 
@@ -46,7 +46,7 @@ const UserSignInForm = () => {
                         value={userType}
                         onChange={handleUserTypeChange}>
                         <option value="Artist">Artist</option>
-                        <option value="Art Enthusiast">Art Enthusiast</option>
+                        <option value="Art enthusiast">Art enthusiast</option>
                     </select>
                 </div>
                 <div className={``}>
@@ -71,7 +71,11 @@ const UserSignInForm = () => {
                     </button>
                 </div>
                 <div className={``}>
-                    <text style={{ fontSize: '16px' }}>Already have an account? Sign in</text>
+                    <text style={{ fontSize: '16px' }}>Already have an account? {<Link
+                        onClick={() => {
+                            navigate('/login');
+                        }}
+                        style={{ color: 'black' }}>Sign in</Link>}</text>
                 </div>
             </div>
         </div>
