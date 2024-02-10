@@ -18,7 +18,7 @@ export default function CartPaymentSection({ cart, updateCart }) {
 
     function handleCheckout() {
 
-        response = confirm("Do you want to check out?");
+        const response = confirm("Do you want to check out?");
 
         if (response) {
 
