@@ -229,6 +229,7 @@ const ArtworkAddForm = () => {
                                     <option value={"Painting"}>Painting</option>
                                     <option value={"Sculpture"}>Sculpture</option>
                                     <option value={"Wall Art"}>Wall Art</option>
+                                    <option value={"Handicraft"}>Handicraft</option>
                                 </select>
                             </div>
                         </div>

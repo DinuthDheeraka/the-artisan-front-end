@@ -181,6 +181,11 @@ const ArtistSignInForm = () => {
                         onChange={() => handleCheckboxChange('Handicraft')}
                         checked={selectedCategories.includes('Handicraft')}
                     />
+                    <Form.Check
+                        label={'Wall Art'}
+                        onChange={() => handleCheckboxChange('Wall Art')}
+                        checked={selectedCategories.includes('Wall Art')}
+                    />
                 </div>
                 {/* eslint-disable-next-line react/jsx-no-undef */}
 
