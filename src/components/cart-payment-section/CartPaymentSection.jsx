@@ -1,6 +1,7 @@
 import axios from "axios";
+import { BASE_URL } from "../../constants/Routes.js";
 
-export default function CartPaymentSection({ cart,updateCart }) {
+export default function CartPaymentSection({ cart, updateCart }) {
 
     const payment = {
         subTotal: 0,
@@ -17,34 +18,42 @@ export default function CartPaymentSection({ cart,updateCart }) {
 
     function handleCheckout() {
 
-        const checkout = async () => {
-            try {
-                // Call your API here using Axios
-                const response = await axios.post("http://127.0.0.1:8000/api/v1/orders",
-                    {
-                        cart: cart,
-                        buyer_id:JSON.parse(localStorage.getItem("user")).id
-                    },
-                    {
-                        headers: {
-                            "Content-Type": "application/json",
+        response = confirm("Do you want to check out?");
+
+        if (response) {
+
+            const checkout = async () => {
+                try {
+                    // Call your API here using Axios
+                    const response = await axios.post(`${BASE_URL}/orders`,
+                        {
+                            cart: cart,
+                            buyer_id: JSON.parse(localStorage.getItem("user")).id
                         },
-                    });
+                        {
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                        });
 
-                if (response.data.success) {
-                    localStorage.setItem("cart", JSON.stringify([]));
-                    updateCart(true);
-                    alert(response.data.message)
-                } else {
-                    alert(response.data.message)
+                    if (response.data.success) {
+                        localStorage.setItem("cart", JSON.stringify([]));
+                        updateCart(true);
+                        alert(response.data.message)
+                    } else {
+                        alert(response.data.message)
+                    }
+
+                } catch (error) {
+                    console.error("Error:", error.message);
                 }
+            };
 
-            } catch (error) {
-                console.error("Error:", error.message);
-            }
-        };
+            checkout();
 
-        checkout();
+        } else {
+
+        }
     }
 
     return (
@@ -72,7 +81,7 @@ export default function CartPaymentSection({ cart,updateCart }) {
 
                 <div style={{}} className={`pb-2 pt-4 w-100 align-items-center d-flex flex-row`}>
                     <div className={`w-50`} style={{ fontWeight: 500 }}>
-                        <text style={{fontWeight:550}}>Total cost</text>
+                        <text style={{ fontWeight: 550 }}>Total cost</text>
                     </div>
                     <div style={{ fontWeight: 500 }}
                         className={`d-flex justify-content-end w-50`}>
